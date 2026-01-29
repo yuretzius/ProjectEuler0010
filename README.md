@@ -24,7 +24,7 @@ we do not really use when sieving. Instead we can have two $N/6$-sized arrays, f
 This, of course, creates the need for a lot of index arithmetic, but these operations are cheap. Worse, this makes it
 impossible to use efficient NumPy array operations in Python, instead we have to rely on several for/while cycles and condion checks.
 
-The resulting Erat2 is rather slow in Python, actually 10 times slower than Erat and EratM. But unlike those two it does accept $N = 10^10$,
+The resulting Erat2 is rather slow in Python, actually 10 times slower than Erat and EratM. But unlike those two it does accept $N = 10^{10}$,
 so saving on memory pays off. Of course, it takes it about 3 hours to finish (ouch!). On the other hand, the C++ version of Erat2 is 1.5 times
 MORE efficient than Erat and EratM. It crunches through 10 billion in about 90 seconds.
 
