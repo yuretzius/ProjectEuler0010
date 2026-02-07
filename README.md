@@ -1,7 +1,7 @@
 # ProjectEuler0010
 My work on 
 
-problem #10 of projecteuler.net:
+[problem #10 of projecteuler.net](https://projecteuler.net/problem=10):
 
 Summation of Primes
 
