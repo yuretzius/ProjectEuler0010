@@ -15,7 +15,7 @@ Please note: Project Euler's policy allows publication of solutions for the firs
 that's why I am sharing my work here for reference and educational purposes.
 #######################################################################################
 
-In problems 7 and 9 I have already built myself two prime calculating functions implementing the sieve of Eratosthenes, Erat and EratM.
+In problems [7](https://github.com/yuretzius/ProjectEuler0007) and [9](https://github.com/yuretzius/ProjectEuler0009) I have already built myself two prime calculating functions implementing the sieve of Eratosthenes, Erat and EratM.
 This problem is an excellent excuse to build myself another one :)
 
 The idea is that since starting from 5 all prime candidates come in pairs $6k \pm 1$, $k \in \mathbb{N}$,
