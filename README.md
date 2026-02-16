@@ -30,3 +30,8 @@ MORE efficient than Erat and EratM. It crunches through 10 billion in about 90 s
 
 The actual problem of summing all primes below 2 million all three functions solve with ease (Python's Erat2 takes more than a second,
 compared to 0.15 sec for Erat and EratM, but in C++ all three take ~15ms).
+
+I used these functions to create a tool for writing primes into a file, which can then be read in other programms, so that I don't have
+to worry about generating primes there. primes.py uses Erat, primes.cpp Erat2, I include a generated CSV file primes.csv with 664,579 primes below 10 million.
+C++ version generates and records 455,052,511 primes under $10^{10}$ in 2.5 min (but the resulting file is almost 5GB, so it is better to generate it when
+necessary rather than keep).
