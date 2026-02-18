@@ -35,3 +35,5 @@ I used these functions to create a tool for writing primes into a file, which ca
 to worry about generating primes there. primes.py uses Erat, primes.cpp Erat2, I include a generated CSV file primes.csv with 664,579 primes below 10 million.
 C++ version generates and records 455,052,511 primes under $10^{10}$ in 2.5 min (but the resulting file is almost 5GB, so it is better to generate it when
 necessary rather than keep).
+
+
