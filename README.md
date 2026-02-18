@@ -37,3 +37,21 @@ C++ version generates and records 455,052,511 primes under $10^{10}$ in 2.5 min 
 necessary rather than keep).
 
 
+Not necessary here, but it may be handy later: a hash function for 128-bit integers.
+
+```C++
+// custom hash function for uint128, to use as a key in unordered map
+template <>
+struct std::hash<uint128>
+{
+    std::size_t operator()(const uint128& k) const noexcept
+    {
+        uint64_t high = static_cast<uint64_t>(k >> 64);
+        uint64_t low  = static_cast<uint64_t>(k);
+
+        uint64_t seed = high;
+        seed ^= low + 0x9e3779b97f4a7c15ULL + (seed << 6) + (seed >> 2); // the constant is the golden ratio mix constant used by Boost
+        return static_cast<std::size_t>(seed);
+    }
+};
+```
