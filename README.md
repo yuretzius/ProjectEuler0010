@@ -39,6 +39,8 @@ necessary rather than keep).
 Another topic to mention here is, of course, the famous Lucy Hedgehog algorithm for summing primes, which [was published in the Project Euler problem 10 forum](https://projecteuler.net/thread=10;page=5#111677) (one has to be logged in and have solved the problem 10 to be able to see this post). It is incredibly efficient,
 so I have included python and C++ implementations of it here, since I am using it in other problems. 
 
+The algorithm sums primes without explicitly computing each of them. It is based on the sieve of Erathosphenes, but instead of actually applying it it follows what happens when the sieve is applied.
+
 Not necessary here, but it may be handy later: a hash function for 128-bit integers.
 
 ```C++
