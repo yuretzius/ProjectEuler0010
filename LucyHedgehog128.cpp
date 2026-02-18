@@ -85,7 +85,7 @@ uint128 LucyHedgehog(uint64_t n){
 }
 
 int main(){
-    uint64_t n = 10000000000000;
+    uint64_t n = 10'000'000'000'000ULL;
     auto start = chrono::high_resolution_clock::now();
     uint128 res = LucyHedgehog(n);
     auto end = chrono::high_resolution_clock::now();
