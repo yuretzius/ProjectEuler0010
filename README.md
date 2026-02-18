@@ -36,7 +36,8 @@ to worry about generating primes there. primes.py uses Erat, primes.cpp Erat2, I
 C++ version generates and records 455,052,511 primes under $10^{10}$ in 2.5 min (but the resulting file is almost 5GB, so it is better to generate it when
 necessary rather than keep).
 
-Another topic to mention here is, of course, the famous Lucy Hedgehog algorithm for summing primes, which [was published in the Project Euler problem 10 forum](https://projecteuler.net/thread=10;page=5#111677).
+Another topic to mention here is, of course, the famous Lucy Hedgehog algorithm for summing primes, which [was published in the Project Euler problem 10 forum](https://projecteuler.net/thread=10;page=5#111677) (one has to be logged in and have solved the problem 10 to be able to see this post). It is incredibly efficient,
+so I have included python and C++ implementations of it here, since I am using it in other problems. 
 
 Not necessary here, but it may be handy later: a hash function for 128-bit integers.
 
