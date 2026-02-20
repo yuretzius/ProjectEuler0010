@@ -31,7 +31,7 @@ MORE efficient than Erat and EratM. It crunches through 10 billion in about 90 s
 The actual problem of summing all primes below 2 million all three functions solve with ease (Python's Erat2 takes more than a second,
 compared to 0.15 sec for Erat and EratM, but in C++ all three take ~15ms).
 
-I used these functions to create a tool for writing primes into a file, which can then be read in other programms, so that I don't have
+I used these functions to create a tool for writing primes into a file, which can then be read in other programs, so that I don't have
 to worry about generating primes there. primes.py uses Erat, primes.cpp Erat2, I include a generated CSV file primes.csv with 664,579 primes below 10 million.
 C++ version generates and records 455,052,511 primes under $10^{10}$ in 2.5 min (but the resulting file is almost 5GB, so it is better to generate it when
 necessary rather than keep).
@@ -39,15 +39,15 @@ necessary rather than keep).
 Another topic to mention here is, of course, the famous Lucy Hedgehog algorithm for summing primes, which [was published in the Project Euler problem 10 forum](https://projecteuler.net/thread=10;page=5#111677) (one has to be logged in and have solved the problem 10 to be able to see this post). It is incredibly efficient,
 so I have included python and C++ implementations of it here, since I am using it in other problems. 
 
-The algorithm sums primes without explicitly computing each of them. It is based on the sieve of Erathosphenes, but instead of actually applying it it follows what happens when the sieve is applied.
+The algorithm sums primes without explicitly computing each of them. It is based on the sieve of Eratosthenes, but instead of actually applying it it follows what happens when the sieve is applied.
 
 It considers the states of $S(v, p)$ when the sieve is run, and evolves them from number to number. $S(v, p)$ is the sum of integers below or equal to $v$ (including $v$ and excluding $1$) after sieving with integer $p$ (not necessarily a prime!). Two key observations are made: in the sieving (see e.g. the most obvious implementation in Erat here) we do changes starting from $p^2$ and above it, everything below $p^2$ is already sieved. And if $p$ is not prime, then $S(p, p-1) = S(p-1,p-1)$, which is a consequence of the former statement: after sieving with $p - 1$ $p$ is already in the fully sieved zone, and if it is not prime, it would not change the sum. For the same reason $S(p-1,p-1)$ is simply the sum of primes below or equal to $p-1$.
 
-So we start with creating an array of numbers $v$, starting with the one we are interested in ( $n$ ) and down to $1$. Another key observation: the recursion we are using to evolve the sums $S(v,p)$ will only involve values of $\lfloor n/i \rfloor$ with $1 \le i \le \lfloor \sqrt{n} \rfloor$, all others are irrelevant. So there is no need to deal with the whole set of integers from $n$ down to $1$, the full set is needed only down from $\lfloor \sqrt{n} \rfloor$, and above $\lfloor n/i \rfloor$ are enough. 
+So we start by creating an array of numbers $v$, starting with the one we are interested in ( $n$ ) and down to $1$. Another key observation: the recursion we are using to evolve the sums $S(v,p)$ will only involve values of $\lfloor n/i \rfloor$ with $1 \le i \le \lfloor \sqrt{n} \rfloor$, all others are irrelevant. So there is no need to deal with the whole set of integers from $n$ down to $1$, the full set is needed only down from $\lfloor \sqrt{n} \rfloor$, and above $\lfloor n/i \rfloor$ are enough. 
 
 Then we initate $S$ with what we can designate as $S(v, 1)$, i.e. full sums of integers: $S(v, 1) = v(v+1)/2 - 1$. E.g. if $n = 20$, we start with:
 
-$$V = \{20, 10, 6, 5, 4, 3, 2, 1\} \text{ and } S = \{209, 54, 20, 14, 9, 5, 2, 0\}.$$
+$$V = \{ 20, 10, 6, 5, 4, 3, 2, 1 \} \text{ and } S = \{ 209, 54, 20, 14, 9, 5, 2, 0 \}.$$
 
 Now we start evolving the set $S$. We don't know any primes, so we simply cycle from $2$ to $\lfloor \sqrt{n} \rfloor$. After we're done with the last one, $n$ will be below the level of sieving, meaning the value of $S(n, p)$ will no longer change and we can stop and read it, it is the answer. And in the sieving we can stop when $v < p^2$: all the $S$ have already achieved their final value in the previous steps. The rule of $p^2$ is pretty neat, huh? It is useful in all kinds of ways.
 
