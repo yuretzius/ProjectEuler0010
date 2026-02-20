@@ -61,7 +61,7 @@ To understand this relation we need to remember, what happens during sieving wit
 
 In our example of $n = 20$ the evolution goes as follows. First we sieve with $2$. We check that $S(2) = 2$ is larger than $S(1) = 0$, so $2$ is a prime. We apply the above formula and now have:
 
-$$S(20,2) = S(20,1) - 2 S(10,1) = 101, S(10,2) = S(10,1) - 2 S(5,1) = 26, S(6,2) = S(6,1) - 2 S(3,1) = 10, S(5,2) = S(5,1) - 2 S(2,1) = 10, S(4,2) =  S(4,1) - 2S(2,1) = 5.$$
+$$S(20,2) = S(20,1) - 2 S(10,1) = 101, \\, S(10,2) = S(10,1) - 2 S(5,1) = 26, \\, S(6,2) = S(6,1) - 2 S(3,1) = 10, \\, S(5,2) = S(5,1) - 2 S(2,1) = 10, \\, S(4,2) =  S(4,1) - 2S(2,1) = 5.$$
 
 We'ver reached $p^2 = 4$, the rest stays the same. The term $S(p-1,p-1)$ in this case is just $S(1,1) = 0$, which conforms with the fact that the sum of primes below $2$ is just $0$, there are no primes below $2$.
 
