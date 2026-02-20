@@ -41,6 +41,14 @@ so I have included python and C++ implementations of it here, since I am using i
 
 The algorithm sums primes without explicitly computing each of them. It is based on the sieve of Erathosphenes, but instead of actually applying it it follows what happens when the sieve is applied.
 
+It considers the states $S(v, p)$ when the sieve is run, and evoles them from number to number.
+
+ 
+
+Some detailed analysis of it can be found e.g. [here](https://gbroxey.github.io/blog/2023/04/09/lucy-fenwick.html).
+
+The bottleneck, if directly translated from python into C++, is that at some point the product $n(n+1)$ is evaluated, which limits $n < 4294967296$ due to overflow in 64-bit integers. So I made a version with 128-integers.
+
 Not necessary here, but it may be handy later: a hash function for 128-bit integers.
 
 ```C++
