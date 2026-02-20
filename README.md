@@ -47,7 +47,7 @@ So we start by creating an array of numbers $v$, starting with the one we are in
 
 Then we initate $S$ with what we can designate as $S(v, 1)$, i.e. full sums of integers: $S(v, 1) = v(v+1)/2 - 1$. E.g. if $n = 20$, we start with:
 
-$$V = \{ 20, 10, 6, 5, 4, 3, 2, 1 \} \text{ and } S = \{ 209, 54, 20, 14, 9, 5, 2, 0 \}.$$
+$$V = [20, 10, 6, 5, 4, 3, 2, 1 ] \text{ and } S = [ 209, 54, 20, 14, 9, 5, 2, 0 ].$$
 
 Now we start evolving the set $S$. We don't know any primes, so we simply cycle from $2$ to $\lfloor \sqrt{n} \rfloor$. After we're done with the last one, $n$ will be below the level of sieving, meaning the value of $S(n, p)$ will no longer change and we can stop and read it, it is the answer. And in the sieving we can stop when $v < p^2$: all the $S$ have already achieved their final value in the previous steps. The rule of $p^2$ is pretty neat, huh? It is useful in all kinds of ways.
 
