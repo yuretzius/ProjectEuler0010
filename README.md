@@ -3,17 +3,16 @@ My work on
 
 [problem #10 of projecteuler.net](https://projecteuler.net/problem=10):
 
-Summation of Primes
+### Summation of Primes
 
 The sum of the primes below $10$ is $2 + 3 + 5 + 7 = 17$.
 Find the sum of all the primes below two million.
 
-Completed on Sun, 21 Feb 2021, 00:37
+*Completed on Sun, 21 Feb 2021, 00:37*
 
-#######################################################################################
-Please note: Project Euler's policy allows publication of solutions for the first 100 problems,
-that's why I am sharing my work here for reference and educational purposes.
-#######################################################################################
+> [!NOTE]
+> Project Euler's policy allows publication of solutions for the first 100 problems, that's why I am sharing my work here for reference and educational purposes.
+
 
 In problems [7](https://github.com/yuretzius/ProjectEuler0007) and [9](https://github.com/yuretzius/ProjectEuler0009) I have already built myself two prime calculating functions implementing the sieve of Eratosthenes, Erat and EratM.
 This problem is an excellent excuse to build myself another one :)
