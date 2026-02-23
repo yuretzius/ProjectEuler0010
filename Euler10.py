@@ -15,7 +15,7 @@ def Erat(N):
     N_bool[1] = False
     #N_bool[2] = True
     #N_bool[3] = True
-    N_bool[2**2::2] = False # eiminating even numbers
+    N_bool[2**2::2] = False # eliminating even numbers
     p = 3
     while p*p <= N:
         # start from p**2
@@ -42,8 +42,8 @@ def EratM(N):
     N_bool = np.array([True]*(N+1))
     N_bool[0] = False
     N_bool[1] = False
-    N_bool[2**2::2] = False # eiminating even numbers
-    N_bool[3**2::3] = False # eiminating multiples of 3
+    N_bool[2**2::2] = False # eliminating even numbers
+    N_bool[3**2::3] = False # eliminating multiples of 3
     p = 5
     while p*p <= N:
         # start from p**2
