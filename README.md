@@ -13,7 +13,6 @@ Find the sum of all the primes below two million.
 > [!NOTE]
 > Project Euler's policy allows publication of solutions for the first 100 problems, that's why I am sharing my work here for reference and educational purposes.
 
-
 In problems [7](https://github.com/yuretzius/ProjectEuler0007) and [9](https://github.com/yuretzius/ProjectEuler0009) I have already built myself two prime calculating functions implementing the sieve of Eratosthenes, Erat and EratM.
 This problem is an excellent excuse to build myself another one :)
 
