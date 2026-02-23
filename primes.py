@@ -13,7 +13,7 @@ def Erat(N):
     N_bool = np.array([True]*(N+1))
     N_bool[0] = False
     N_bool[1] = False
-    N_bool[2**2::2] = False # eiminating even numbers
+    N_bool[2**2::2] = False # eliminating even numbers
     p = 3
     while p*p <= N:
         # start from p**2
