@@ -73,8 +73,8 @@ def Erat2(N):
     # only taking care of primes starting from 5 and 7
     # which all are in form 6k - 1 and 6k + 1
     top_index = N//6 # max k
-    low_cand = np.array([True]*(top_index)) # to track 6k-1 candidates
-    high_cand = np.array([True]*(top_index)) # to track 6k+1 candidates
+    low_cand = [True]*(top_index) # to track 6k-1 candidates
+    high_cand = [True]*(top_index) # to track 6k+1 candidates
     k = 1
     p = 6*k     
     while (p-1)*(p-1) <= N: # if even the lower part of the pair <= N, go in the cycle
