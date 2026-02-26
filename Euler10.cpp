@@ -82,11 +82,13 @@ vector<unsigned long> EratM(unsigned long N){
 
 vector<unsigned long> Erat2(unsigned long N) {
     vector<unsigned long> primes;
-    if (N < 5) {
+    if (N < 6) {
         if (N < 2) return primes;
         primes.push_back(2);
         if (N == 2) return primes;
         primes.push_back(3);
+        if (N < 5) return primes;
+        primes.push_back(5);
         return primes; 
     }
     // only taking care of primes starting from 5 and 7
