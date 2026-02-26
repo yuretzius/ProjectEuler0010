@@ -66,8 +66,8 @@ def Erat2(N):
     Only tracks candidates 6k+1 and 6k-1
     Thus should be slightly more memory-efficient 
     """
-    if N < 5:
-        first_primes = ([],[],[2],[2,3],[2,3])
+    if N < 6:
+        first_primes = ([],[],[2],[2,3],[2,3],[2,3,5])
         return(first_primes[N]) 
     
     # only taking care of primes starting from 5 and 7
