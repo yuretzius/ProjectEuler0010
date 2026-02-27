@@ -74,13 +74,13 @@ vector<unsigned long> EratM(unsigned long N){
     return primes;
 }
 
-//the sieve of Eratosthenes, the limit by both memory and time is about 10^10
+// the sieve of Eratosthenes, the limit by both memory and time is about 10^10
 // Returns the list of primes lower or equal than N
 // Only tracks candidates 6k+1 and 6k-1
 // Thus should be slightly more memory-efficient 
 // (10^10 takes about 92 seconds)
 
-vector<unsigned long> Erat2(unsigned long N) {
+vector<uint64_t> Erat2(uint64_t N) {
     vector<unsigned long> primes;
     if (N < 6) {
         if (N < 2) return primes;
@@ -93,13 +93,13 @@ vector<unsigned long> Erat2(unsigned long N) {
     }
     // only taking care of primes starting from 5 and 7
     // which all are in form 6k - 1 and 6k + 1
-    unsigned long top_index = N / 6; // max k
+    uint64_t top_index = N / 6; // max k
     vector<bool> low_cand (top_index, true); // to track 6k-1 candidates
     vector<bool> high_cand (top_index, true); // to track 6k+1 candidates
     vector<bool>::iterator itr = low_cand.begin();
-    unsigned long k = 1;
-    unsigned long p = 6*k ; 
-    unsigned long p_low, p_high, t, i;
+    uint64_t k = 1;
+    uint64_t p = 6*k ; 
+    uint64_t p_low, p_high, t, i;
     p_low = p_high = t = i = 0;    
     while ((p-1)*(p-1) <= N) 
     // if even the lower part of the pair <= N, go in the cycle
@@ -163,13 +163,12 @@ vector<unsigned long> Erat2(unsigned long N) {
 }
 
 
-
 int main(){
     
-    unsigned long N = 2000000;
-    unsigned long summa;
+    uint64_t N = 2000000;
+    uint64_t summa;
     clock_t c_start = clock();
-    vector <unsigned long> primes = Erat(N);
+    vector <uint64_t> primes = Erat(N);
     summa = accumulate(primes.begin(), primes.end(), (unsigned long) 0);
     clock_t c_end = clock();
     cout << 1000.0*(c_end - c_start) / CLOCKS_PER_SEC << " ms\n";
