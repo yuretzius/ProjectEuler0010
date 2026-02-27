@@ -72,6 +72,44 @@ uint64_t LucyHedgehog(uint64_t n){
     return S[n];
 }
 
+// this is the prime COUNTING version
+uint64_t LucyHedgehogNum(uint64_t n){
+    /*
+    extremely efficient algorithm
+    for the *number* of primes 
+    below or equal to n 
+    */
+    
+    uint64_t sqn = floorSqrt(n);
+    uint64_t p2, sp, val;
+    vector<uint64_t> V;
+    for (uint64_t i = 1; i < sqn + 1; i++){
+        V.push_back(n/i);
+    }
+    for (uint64_t i = *(V.end()-1)-1; i > 0; i--){
+        V.push_back(i);
+    }
+    // so e.g. for n = 10 V is {10, 5, 3, 2, 1}
+    unordered_map<uint64_t, uint64_t> S;
+    for (vector<uint64_t>::iterator it = V.begin(); it < V.end(); it++) {
+        val = *it - 1;
+        S.insert({*it, val});
+    }
+    // so for n = 10 it is {{10, 9}, {5, 4}, {3, 2}, {2, 1}, {1, 0}}
+    for (uint64_t p = 2; p < sqn + 1; p++) {
+        if(S[p] > S[p-1]) {
+            sp = S[p-1]; // count of primes smaller than p
+            p2 = p*p;
+            for (vector<uint64_t>::iterator it = V.begin(); it < V.end(); it++) {
+                if (*it < p2) break;
+                S[*it] -= (S[*it/p] - sp); // main recursive formula
+            }
+        }
+    }
+    return S[n];
+}
+
+
 int main(){
     uint64_t n = 4294967295;
     auto start = chrono::high_resolution_clock::now();
