@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//the sieve of Eratosthenes, the limit by both memory and time is about 10^10
+// the sieve of Eratosthenes, the limit by both memory and time is about 10^10
 // Returns the list of primes lower or equal than N
 // Only tracks candidates 6k+1 and 6k-1
 // Thus should be slightly more memory-efficient 
@@ -14,11 +14,13 @@ using namespace std;
 
 vector<uint64_t> Erat2(uint64_t N) {
     vector<uint64_t> primes;
-    if (N < 5) {
+    if (N < 6) {
         if (N < 2) return primes;
         primes.push_back(2);
         if (N == 2) return primes;
         primes.push_back(3);
+        if (N < 5) return primes;
+        primes.push_back(5);
         return primes; 
     }
     // only taking care of primes starting from 5 and 7
@@ -94,7 +96,7 @@ vector<uint64_t> Erat2(uint64_t N) {
 
 int main(){
     
-    uint64_t N = 10000000;
+    uint64_t N = 10'000'000;
     string filename = "primes1.csv";
     auto start = chrono::high_resolution_clock::now();
     vector <uint64_t> primes = Erat2(N);

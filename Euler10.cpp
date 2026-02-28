@@ -81,7 +81,7 @@ vector<unsigned long> EratM(unsigned long N){
 // (10^10 takes about 92 seconds)
 
 vector<uint64_t> Erat2(uint64_t N) {
-    vector<unsigned long> primes;
+    vector<uint64_t> primes;
     if (N < 6) {
         if (N < 2) return primes;
         primes.push_back(2);
