@@ -1,7 +1,8 @@
 import numpy as np
 from time import perf_counter
+from tqdm import trange, tqdm
 
-def Erat(N):
+def Erat(N: int) -> list:
     """
     The Sieve of Eratosthenes implemented with numpy arrays
     Returns the list of primes lower or equal than N
@@ -30,7 +31,7 @@ def Erat(N):
     # Have to use index [0], because for technical reasons it produces a 2D array
     return list(np.nonzero(N_bool)[0])
 
-def EratM(N):
+def EratM(N: int) -> list:
     """
     The Sieve of Eratosthenes implemented with numpy arrays
     Returns the list of primes lower or equal than N
@@ -59,7 +60,7 @@ def EratM(N):
     # Have to use index [0], because for technical reasons it produces a 2D array
     return list(np.nonzero(N_bool)[0]) 
 
-def Erat2(N):
+def Erat2(N: int) -> list:
     """
     The Sieve of Eratosthenes implemented with numpy arrays
     Returns the list of primes lower or equal than N
@@ -76,7 +77,8 @@ def Erat2(N):
     low_cand = [True]*(top_index) # to track 6k-1 candidates
     high_cand = [True]*(top_index) # to track 6k+1 candidates
     k = 1
-    p = 6*k     
+    p = 6*k  
+    pbar = tqdm(total=int(N**0.5)//6, ascii = True)    
     while (p-1)*(p-1) <= N: # if even the lower part of the pair <= N, go in the cycle
         # 6*k - 1 sieve
         if low_cand[k-1]:
@@ -109,9 +111,12 @@ def Erat2(N):
                 
         k += 1 # go to the next pair
         p = 6*k 
+        pbar.update(1)
+    
+    pbar.close()
         
     primes = [2,3] # by default
-    for i in range(1,top_index+1):
+    for i in trange(1, top_index+1, ascii = True):
         # convert the candidate arrays into actual numbers
         if low_cand[i-1]:
             primes.append(6*i - 1)
@@ -122,26 +127,33 @@ def Erat2(N):
     return primes
 
 
-N = 2*10**6
+def main() -> int:
 
-start = perf_counter()
-res = sum([int(u) for u in Erat(N)]) # must recast as python's int to avoid overflow
-end = perf_counter()
+    N = 2*10**6
 
-print(res)
-print('Erat:', end - start,'sec')
+    start = perf_counter()
+    res = sum([int(u) for u in Erat(N)]) # must recast as python's int to avoid overflow
+    end = perf_counter()
 
-start = perf_counter()
-res = sum([int(u) for u in EratM(N)])
-end = perf_counter()
+    print(res)
+    print('Erat:', end - start,'sec')
 
-print(res)
-print('EratM:', end - start,'sec')
+    start = perf_counter()
+    res = sum([int(u) for u in EratM(N)])
+    end = perf_counter()
 
-start = perf_counter()
-res = sum([int(u) for u in Erat2(N)])
-end = perf_counter()
+    print(res)
+    print('EratM:', end - start,'sec')
 
-print(res)
-print('Erat2:', end - start,'sec')
+    start = perf_counter()
+    res = sum([int(u) for u in Erat2(N)])
+    end = perf_counter()
+
+    print(res)
+    print('Erat2:', end - start,'sec')
+
+    return 0
+
+if __name__=="__main__":
+    main()
 
